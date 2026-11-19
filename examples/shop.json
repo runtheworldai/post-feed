@@ -1,0 +1,41 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Northwind Outdoor",
+  "home_page_url": "https://northwind.example",
+  "items": [
+    {
+      "id": "product-trail-pack-28",
+      "title": "Trail Pack 28 is back in stock",
+      "content_text": "The 28-litre Trail Pack is back in green and slate. Recycled nylon, a rain cover in the lid, and a lifetime repair promise.",
+      "url": "https://northwind.example/products/trail-pack-28",
+      "image": "https://northwind.example/images/trail-pack-28-green.jpg",
+      "date_published": "2026-04-02T10:00:00-07:00",
+      "_runner": {
+        "kind": "product",
+        "claims": [
+          "Made from recycled nylon",
+          "Rain cover stored in the lid",
+          "Lifetime repair promise"
+        ],
+        "rights": { "owned": true, "made_with_ai": false, "shows_real_person": false }
+      }
+    },
+    {
+      "id": "offer-spring-15",
+      "title": "15% off camp cookware this week",
+      "content_text": "15% off all camp cookware until Sunday at midnight Pacific time, online and in store.",
+      "url": "https://northwind.example/sale",
+      "date_published": "2026-04-06T07:00:00-07:00",
+      "_runner": {
+        "kind": "offer",
+        "expires": "2026-04-13T00:00:00-07:00",
+        "claims": [
+          "15% off camp cookware",
+          "Ends Sunday at midnight Pacific time",
+          "Online and in store"
+        ],
+        "channels": ["instagram", "facebook", "x"]
+      }
+    }
+  ]
+}

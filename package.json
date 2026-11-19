@@ -1,0 +1,57 @@
+{
+  "name": "@runtheworldai/post-feed",
+  "version": "0.1.0",
+  "description": "A feed format for handing an AI growth team what is new with your business: JSON Feed 1.1 with a small _runner extension, or plain RSS and Atom.",
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "Shmaplex (https://www.runtheworld.ai)",
+  "homepage": "https://github.com/runtheworldai/post-feed#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runtheworldai/post-feed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/runtheworldai/post-feed/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./schema/runner-extension.schema.json": "./schema/runner-extension.schema.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "schema",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "jsonfeed",
+    "rss",
+    "atom",
+    "social",
+    "marketing",
+    "ai-agents",
+    "json-feed",
+    "growth",
+    "runner"
+  ],
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vitest": "^3.2.4"
+  }
+}

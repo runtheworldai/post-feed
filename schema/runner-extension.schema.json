@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/runtheworldai/post-feed/schema/runner-extension.schema.json",
+  "title": "Post Feed: the _runner extension on a JSON Feed item",
+  "description": "Optional. Put it on any JSON Feed 1.1 item as \"_runner\". Every field may be left out; an item with no _runner block is read as kind news, priority normal, with a picture that is not used.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "description": "What the item is about. Shapes how a post is written.",
+      "enum": ["news", "product", "event", "offer", "story", "character"],
+      "default": "news"
+    },
+    "not_before": {
+      "description": "Not posted before this moment (ISO 8601).",
+      "type": "string",
+      "format": "date-time"
+    },
+    "expires": {
+      "description": "Never posted after this moment (ISO 8601): the end of an offer, the start of an event.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "claims": {
+      "description": "When given, the only claims a post about this item may make, each as you would say it.",
+      "type": "array",
+      "maxItems": 10,
+      "items": { "type": "string", "minLength": 1, "maxLength": 300 }
+    },
+    "characters": {
+      "description": "Recurring characters to feature, by the exact name your growth team knows them by.",
+      "type": "array",
+      "maxItems": 4,
+      "items": { "type": "string", "minLength": 1, "maxLength": 60 }
+    },
+    "rights": {
+      "description": "What you can say about the item's picture. Left out, the picture is not used.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "owned": {
+          "description": "You own the picture or may let it be posted.",
+          "type": "boolean",
+          "default": false
+        },
+        "made_with_ai": {
+          "description": "The picture was made or edited with AI.",
+          "type": "boolean",
+          "default": false
+        },
+        "shows_real_person": {
+          "description": "The picture shows a real, identifiable person. It is then never posted from a feed: add that person's photo where their consent is recorded.",
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "channels": {
+      "description": "Channels to post on, such as instagram or linkedin. Left out, the team chooses.",
+      "type": "array",
+      "maxItems": 10,
+      "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]{0,29}$" }
+    },
+    "priority": {
+      "description": "push asks for it to be posted ahead of the team's own ideas.",
+      "enum": ["normal", "push"],
+      "default": "normal"
+    }
+  }
+}

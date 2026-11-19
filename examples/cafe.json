@@ -1,0 +1,37 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Juniper Street Café",
+  "home_page_url": "https://juniperstreet.example",
+  "items": [
+    {
+      "id": "spring-menu-2026",
+      "title": "Spring menu is in",
+      "content_text": "Three new plates this spring: charred leeks with hazelnut, a wild garlic omelette, and rhubarb buns on Saturdays.",
+      "url": "https://juniperstreet.example/menu",
+      "image": "https://juniperstreet.example/photos/spring-plates.jpg",
+      "date_published": "2026-03-01T08:00:00+09:00",
+      "_runner": {
+        "kind": "product",
+        "expires": "2026-05-31T22:00:00+09:00",
+        "claims": ["Rhubarb buns are Saturdays only", "The spring menu runs until 31 May"],
+        "rights": { "owned": true, "made_with_ai": false, "shows_real_person": false },
+        "channels": ["instagram", "facebook"]
+      }
+    },
+    {
+      "id": "latte-art-night-2026-03-14",
+      "title": "Latte art night",
+      "content_text": "Our baristas teach latte art on Friday 14 March from 7pm. Twelve places, free with any drink.",
+      "url": "https://juniperstreet.example/events/latte-art",
+      "date_published": "2026-03-03T09:00:00+09:00",
+      "_runner": {
+        "kind": "event",
+        "not_before": "2026-03-07T09:00:00+09:00",
+        "expires": "2026-03-14T19:00:00+09:00",
+        "claims": ["Friday 14 March from 7pm", "Twelve places", "Free with any drink"],
+        "characters": ["Bo"],
+        "priority": "push"
+      }
+    }
+  ]
+}

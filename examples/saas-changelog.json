@@ -1,0 +1,30 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Ledgerly changelog",
+  "home_page_url": "https://ledgerly.example/changelog",
+  "items": [
+    {
+      "id": "release-4.12.0",
+      "title": "Bank rules now match on amount ranges",
+      "content_html": "<p>Bank rules can now match a transaction by an amount range, so a rule like <em>card fees between $1 and $5</em> files itself.</p>",
+      "url": "https://ledgerly.example/changelog/4-12-0",
+      "date_published": "2026-05-12T16:00:00Z",
+      "_runner": {
+        "kind": "product",
+        "claims": ["Bank rules can match an amount range", "Available on every plan from today"],
+        "channels": ["linkedin", "x"]
+      }
+    },
+    {
+      "id": "story-harbor-books",
+      "title": "How Harbor Books closes the month in a day",
+      "content_text": "Harbor Books, a three-person bookkeeping firm, closes client months in a day using bank rules and receipt matching.",
+      "url": "https://ledgerly.example/stories/harbor-books",
+      "date_published": "2026-05-20T15:00:00Z",
+      "_runner": {
+        "kind": "story",
+        "claims": ["Harbor Books is a three-person firm", "They close client months in a day"]
+      }
+    }
+  ]
+}

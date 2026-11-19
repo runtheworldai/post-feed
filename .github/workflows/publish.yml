@@ -1,0 +1,56 @@
+# Publishes @runtheworldai/post-feed whenever a version that npm does not have yet
+# reaches main. npm trusted publishing (OIDC): no token is stored anywhere, and every
+# release carries a provenance statement linking it to this repo and this run.
+name: Publish to npm
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      # Trusted publishing needs npm 11.5.1 or later.
+      - run: npm install -g npm@latest
+
+      - name: Is this version new?
+        id: version
+        run: |
+          NAME=$(node -p "require('./package.json').name")
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          if npm view "$NAME@$VERSION" version >/dev/null 2>&1; then
+            echo "new=false" >> "$GITHUB_OUTPUT"
+            echo "$NAME@$VERSION is already on npm; nothing to publish."
+          else
+            echo "new=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - if: steps.version.outputs.new == 'true'
+        run: npm ci
+
+      - if: steps.version.outputs.new == 'true'
+        run: npm run build
+
+      - if: steps.version.outputs.new == 'true'
+        run: npm test
+
+      - if: steps.version.outputs.new == 'true'
+        run: npm publish --access public --provenance

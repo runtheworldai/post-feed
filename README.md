@@ -69,3 +69,7 @@ No dependencies. Examples for a café, a shop and a software changelog are in
 ## Licence
 
 [Common Sense License (CSL) v1.1](LICENSE), Copyright (C) 2026 Shmaplex: free for individuals, nonprofits, researchers and businesses under USD $10 million in annual revenue; larger commercial users owe reciprocity under its terms. It covers this package only, not Runner.
+
+## Releasing
+
+Bump `version` in `package.json` and push to `main`. The [publish workflow](.github/workflows/publish.yml) builds, tests and publishes any version npm does not have yet, through npm trusted publishing: no token is stored, and each release carries a provenance statement.
